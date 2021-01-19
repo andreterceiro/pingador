@@ -61,6 +61,14 @@ class UsuariosController < ApplicationController
     end
   end
 
+  def login
+    if session["usuario"].nil? 
+      @usuario = Usuario.new
+    else 
+      redirect_to controller: "hosts", action: "index"
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_usuario
@@ -71,4 +79,5 @@ class UsuariosController < ApplicationController
     def usuario_params
       params.require(:usuario).permit(:login, :senha, :email)
     end
-end
+
+  end

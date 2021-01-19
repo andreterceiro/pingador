@@ -1,0 +1,21 @@
+<%= form_with(model: @usuario) do |form| %>
+  <% if @usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= Login ou senha inválidos %></h2>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :login %>
+    <%= form.text_field :login %>
+  </div>
+
+  <div class="field">
+    <%= form.label :senha %>
+    <%= form.text_field :senha %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit value="Login" %>
+  </div>
+<% end %>
